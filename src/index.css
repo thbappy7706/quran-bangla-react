@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0c0a09;
+    color: #e7e5e4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1c1917;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #78350f;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b45309;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(180, 83, 9, 0.4);
+    color: #fef3c7;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+           bg-gradient-to-r from-amber-700 to-amber-600
+           hover:from-amber-600 hover:to-amber-500
+           text-stone-950 font-semibold text-sm
+           transition-all duration-200 shadow-lg shadow-amber-900/30
+           hover:shadow-amber-800/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl
+           border border-amber-900/30 hover:border-amber-700/60
+           text-amber-500 hover:text-amber-400
+           bg-transparent hover:bg-amber-900/10
+           text-sm transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-stone-900/40 border border-amber-900/20 rounded-2xl
+           hover:border-amber-800/40 hover:bg-stone-900/60
+           transition-all duration-300;
+  }
+
+  .card-active {
+    @apply bg-amber-900/20 border-amber-700/50;
+  }
+
+  .glass {
+    @apply bg-stone-950/80 backdrop-blur-md border-b border-amber-900/20;
+  }
+
+  .text-arabic {
+    font-family: 'Amiri', serif;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+
+  .text-bangla {
+    font-family: 'Noto Serif Bengali', serif;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full
+           text-xs font-medium;
+  }
+
+  .badge-mecca {
+    @apply badge bg-amber-900/40 text-amber-400 border border-amber-800/40;
+  }
+
+  .badge-medina {
+    @apply badge bg-emerald-900/40 text-emerald-400 border border-emerald-800/40;
+  }
+
+  /* Range input */
+  input[type='range'] {
+    @apply appearance-none bg-transparent;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    @apply appearance-none w-3.5 h-3.5 rounded-full bg-amber-500 cursor-pointer;
+    margin-top: -5px;
+  }
+  input[type='range']::-webkit-slider-runnable-track {
+    @apply h-1 rounded-full bg-stone-700;
+  }
+}
+
+/* Stagger animation helpers */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
