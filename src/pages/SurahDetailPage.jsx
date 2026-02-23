@@ -12,16 +12,16 @@ import { DoubleOrnament, StarField, HexBadge } from '../components/Decorative'
 import { cn } from '../utils/cn'
 
 export default function SurahDetailPage() {
-  const { surahNo }          = useParams()
-  const no                   = Number(surahNo)
-  const navigate             = useNavigate()
+  const { surahNo } = useParams()
+  const no = Number(surahNo)
+  const navigate = useNavigate()
   const { data, loading, error } = useSurahDetail(no)
-  const { toggle, has }      = useBookmarks()
-  const { save }             = useLastRead()
+  const { toggle, has } = useBookmarks()
+  const { save } = useLastRead()
 
   const [selectedReciter, setSelectedReciter] = useState(1)
   const [showReciterPanel, setShowReciterPanel] = useState(false)
-  const [showPlayer, setShowPlayer]           = useState(false)
+  const [showPlayer, setShowPlayer] = useState(false)
   const [highlightedVerse, setHighlightedVerse] = useState(null)
 
   const isBookmarked = has(no)
@@ -30,15 +30,15 @@ export default function SurahDetailPage() {
   useEffect(() => { if (no) save(no) }, [no])
 
   if (loading) return <PageSpinner />
-  if (error)   return <ErrorState message={`সূরা লোড করতে সমস্যা: ${error}`} />
-  if (!data)   return null
+  if (error) return <ErrorState message={`সূরা লোড করতে সমস্যা: ${error}`} />
+  if (!data) return null
 
   const isMecca = data.revelationPlace === 'Mecca'
   const hasPrev = no > 1
   const hasNext = no < 114
 
   const chapterAudioUrl = data.audio?.[selectedReciter]?.url
-  const reciterName     = RECITERS[selectedReciter]?.nameBn || RECITERS[selectedReciter]?.name
+  const reciterName = RECITERS[selectedReciter]?.nameBn || RECITERS[selectedReciter]?.name
 
   const getVerseAudioUrl = (idx) =>
     data.verseAudio?.[selectedReciter]?.audios?.[idx]?.url || null
@@ -165,11 +165,13 @@ export default function SurahDetailPage() {
 
         {/* Verses */}
         <div className="space-y-3">
-          {(data.translation || []).map((verse, i) => (
+          {(data.arabic1 || data.arabic2 || []).map((arabicText, i) => (
             <VerseCard
               key={i}
               index={i}
-              verse={verse}
+              arabic={arabicText}
+              bengali={(data.bengali || [])[i]}
+              english={(data.english || [])[i]}
               audioUrl={getVerseAudioUrl(i)}
               reciterName={reciterName}
               isHighlighted={highlightedVerse === i}

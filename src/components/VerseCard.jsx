@@ -4,16 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MiniAudioPlayer } from './AudioPlayer'
 import { cn } from '../utils/cn'
 
-export function VerseCard({ index, verse, audioUrl, reciterName, isHighlighted }) {
+export function VerseCard({ index, arabic, bengali, english, audioUrl, reciterName, isHighlighted }) {
   const [showAudio, setShowAudio] = useState(false)
-  const [copied, setCopied]       = useState(false)
+  const [copied, setCopied] = useState(false)
 
   const copyText = async () => {
     try {
-      await navigator.clipboard.writeText(verse)
+      const text = [arabic, bengali, english].filter(Boolean).join('\n')
+      await navigator.clipboard.writeText(text)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-    } catch {}
+    } catch { }
   }
 
   return (
@@ -69,16 +70,47 @@ export function VerseCard({ index, verse, audioUrl, reciterName, isHighlighted }
         </div>
       </div>
 
-      {/* Verse text */}
-      <div className="px-5 pb-4">
-        <p className={cn(
-          'text-base leading-[1.9] transition-colors duration-300',
-          isHighlighted ? 'text-amber-100' : 'text-stone-200',
+      {/* Verse content */}
+      <div className="px-5 pb-4 space-y-3">
+
+        {/* Arabic text */}
+        {arabic && (
+          <p
+            className={cn(
+              'text-right text-2xl md:text-3xl leading-[2.2] transition-colors duration-300',
+              isHighlighted ? 'text-amber-200' : 'text-amber-300/90',
+            )}
+            style={{ fontFamily: "'Amiri', serif" }}
+            dir="rtl"
+          >
+            {arabic}
+          </p>
         )}
-          style={{ fontFamily: "'Noto Serif Bengali', serif" }}
-        >
-          {verse}
-        </p>
+
+        {/* Divider */}
+        {arabic && (bengali || english) && (
+          <div className="border-t border-amber-900/20" />
+        )}
+
+        {/* Bengali translation */}
+        {bengali && (
+          <p
+            className={cn(
+              'text-base leading-[1.9] transition-colors duration-300',
+              isHighlighted ? 'text-amber-100' : 'text-stone-200',
+            )}
+            style={{ fontFamily: "'Noto Serif Bengali', serif" }}
+          >
+            {bengali}
+          </p>
+        )}
+
+        {/* English translation (subtle) */}
+        {english && (
+          <p className="text-sm leading-relaxed text-stone-500 italic">
+            {english}
+          </p>
+        )}
 
         {/* Audio panel */}
         <AnimatePresence>
@@ -90,7 +122,7 @@ export function VerseCard({ index, verse, audioUrl, reciterName, isHighlighted }
               transition={{ duration: 0.2 }}
               className="overflow-hidden"
             >
-              <div className="mt-3">
+              <div className="mt-1">
                 <MiniAudioPlayer url={audioUrl} label={reciterName} />
               </div>
             </motion.div>
