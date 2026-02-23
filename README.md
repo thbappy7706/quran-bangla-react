@@ -1,6 +1,6 @@
 # কুরআন শরীফ | Al-Quran Bangla App
 
-A beautiful, full-featured Quran reading app in Bengali built with **React 19**, **Vite**, **Tailwind CSS**, and **Framer Motion**.
+A beautiful, full-featured Quran reading app in Bengali built with **React 19**, **Vite**, **Tailwind CSS**, and **Framer Motion**. It is also a Progressive Web App (PWA) — installable and offline-capable via a web manifest and service worker.
 
 ## ✨ Features
 
@@ -12,6 +12,7 @@ A beautiful, full-featured Quran reading app in Bengali built with **React 19**,
 - 📱 **Responsive** — mobile bottom nav + desktop top nav
 - 🌙 **Islamic aesthetic** — dark gold theme, Arabic typography
 - ▶️ **Chapter Player** — sticky audio bar with seek + volume
+- 🛠️ **PWA (Installable)** — offline-capable, web manifest, service worker registration, and an update prompt component
 
 ## 🚀 Quick Start
 
@@ -88,3 +89,30 @@ Data from: `https://quranapi.pages.dev/api/`
 - **Amiri** — Arabic text
 - **Noto Serif Bengali** — Bengali translation
 - **Cinzel** — Display / UI headings
+
+## ⚡ Progressive Web App (PWA)
+
+This app includes Progressive Web App support so users can install the app and get a more native-like experience.
+
+- Installable: Add the app to your home screen (mobile) or install on desktop when prompted.
+- Offline support: Cached static assets and basic data caching allow reading the app when offline or with flaky connections.
+- Update prompt: A dedicated UI component notifies users when a new version is available and lets them reload to update.
+
+How to test the PWA features locally:
+
+1. Build and preview the production bundle:
+
+```bash
+npm run build
+npm run preview
+```
+
+2. Open the preview URL in Chrome/Edge, then open DevTools → Application to inspect the Web App Manifest and Service Worker.
+3. Run Lighthouse (Audits) to verify PWA best practices and offline capability.
+4. On mobile, open the site in the browser and use the Add to Home screen prompt (or the browser menu) to install.
+
+Relevant files/locations in this repo:
+
+- public/ — app icons used by the web manifest
+- src/main.jsx — service worker / PWA registration occurs here
+- src/components/PWAUpdatePrompt.jsx — UI that prompts users when an update is available
