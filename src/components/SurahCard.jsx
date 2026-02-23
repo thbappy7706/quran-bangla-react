@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Bookmark, BookmarkCheck } from 'lucide-react'
+import { Bookmark, BookmarkCheck, Headphones } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { HexBadge } from './Decorative'
 import { Badge } from './UI'
@@ -42,25 +42,39 @@ export function SurahCard({ surah, index = 0, hasBookmark, onToggleBookmark }) {
             <span className="text-stone-600 text-xs font-bangla">
               {surah.totalAyah} আয়াত
             </span>
+            {/* Audio available indicator */}
+            <span className="inline-flex items-center gap-1 text-[10px] text-amber-700/70 font-bangla border border-amber-900/30 rounded-full px-2 py-0.5 bg-amber-900/10">
+              <Headphones size={9} />
+              অডিও আছে
+            </span>
           </div>
         </div>
 
-        {/* Bookmark button */}
-        <button
-          onClick={e => { e.preventDefault(); onToggleBookmark?.(surah.surahNo) }}
-          className={cn(
-            'flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200',
-            hasBookmark
-              ? 'text-amber-400 bg-amber-900/30 hover:bg-amber-900/50'
-              : 'text-stone-600 hover:text-amber-500 hover:bg-amber-900/20 opacity-0 group-hover:opacity-100',
-          )}
-          title={hasBookmark ? 'বুকমার্ক সরান' : 'বুকমার্ক করুন'}
-        >
-          {hasBookmark
-            ? <BookmarkCheck size={16} fill="currentColor" />
-            : <Bookmark      size={16} />
-          }
-        </button>
+        {/* Right side: audio hint arrow + bookmark */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {/* "শুনুন" hover label */}
+          <span className="hidden group-hover:flex items-center gap-1 text-[10px] font-bangla text-amber-500 bg-amber-900/20 border border-amber-800/30 rounded-full px-2.5 py-1 transition-all duration-200 whitespace-nowrap">
+            <Headphones size={10} />
+            শুনুন
+          </span>
+
+          {/* Bookmark button */}
+          <button
+            onClick={e => { e.preventDefault(); onToggleBookmark?.(surah.surahNo) }}
+            className={cn(
+              'flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200',
+              hasBookmark
+                ? 'text-amber-400 bg-amber-900/30 hover:bg-amber-900/50'
+                : 'text-stone-600 hover:text-amber-500 hover:bg-amber-900/20 opacity-0 group-hover:opacity-100',
+            )}
+            title={hasBookmark ? 'বুকমার্ক সরান' : 'বুকমার্ক করুন'}
+          >
+            {hasBookmark
+              ? <BookmarkCheck size={16} fill="currentColor" />
+              : <Bookmark size={16} />
+            }
+          </button>
+        </div>
       </Link>
     </motion.div>
   )

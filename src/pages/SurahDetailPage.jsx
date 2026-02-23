@@ -76,17 +76,19 @@ export default function SurahDetailPage() {
               {isBookmarked ? <BookmarkCheck size={16} fill="currentColor" /> : <Bookmark size={16} />}
             </button>
 
-            {/* Audio toggle */}
+            {/* Audio toggle — prominent pill button */}
             {chapterAudioUrl && (
               <button
                 onClick={() => setShowPlayer(v => !v)}
                 className={cn(
-                  'w-8 h-8 rounded-lg flex items-center justify-center transition-all',
-                  showPlayer ? 'text-amber-400 bg-amber-900/30' : 'text-stone-500 hover:text-amber-500',
+                  'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold font-bangla transition-all duration-200 border',
+                  showPlayer
+                    ? 'bg-amber-600/20 text-amber-300 border-amber-600/40 hover:bg-amber-600/30'
+                    : 'bg-amber-500 text-stone-950 border-amber-400 hover:bg-amber-400 shadow-md shadow-amber-900/30',
                 )}
-                title="সূরা শুনুন"
               >
-                {showPlayer ? <Music2 size={16} /> : <Music size={16} />}
+                {showPlayer ? <Music2 size={13} /> : <Music size={13} />}
+                {showPlayer ? 'বন্ধ করুন' : 'সূরা শুনুন'}
               </button>
             )}
           </div>
