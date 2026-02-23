@@ -10,7 +10,7 @@ export const RECITERS = {
 
 export const REVELATION_BN = {
   Mecca:  'মক্কি',
-  Medina: 'মাদানি',
+  Madina: 'মাদানি',
 }
 
 export const JUZZ_DATA = [

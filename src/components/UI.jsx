@@ -66,7 +66,7 @@ export function Badge({ children, variant = 'default' }) {
       className={cn(
         'badge',
         variant === 'mecca'  && 'badge-mecca',
-        variant === 'medina' && 'badge-medina',
+        variant === 'Madina' && 'badge-Madina',
         variant === 'default' && 'bg-stone-800 text-stone-400 border border-stone-700',
       )}
     >

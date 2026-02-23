@@ -10,7 +10,7 @@ import { cn } from '../utils/cn'
 const FILTERS = [
   { label: 'সব', value: 'all' },
   { label: 'মক্কি', value: 'Mecca' },
-  { label: 'মাদানি', value: 'Medina' },
+  { label: 'মাদানি', value: 'Madina' },
   { label: 'বুকমার্ক', value: 'bookmarked' },
 ]
 
@@ -22,7 +22,7 @@ export default function QuranListPage() {
 
   const filtered = useMemo(() => {
     let list = surahs
-    if (filter === 'Mecca' || filter === 'Medina')
+    if (filter === 'Mecca' || filter === 'Madina')
       list = list.filter(s => s.revelationPlace === filter)
     if (filter === 'bookmarked')
       list = list.filter(s => has(s.surahNo))

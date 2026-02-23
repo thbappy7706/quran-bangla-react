@@ -36,7 +36,7 @@ export function SurahCard({ surah, index = 0, hasBookmark, onToggleBookmark }) {
             </p>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
-            <Badge variant={surah.revelationPlace === 'Mecca' ? 'mecca' : 'medina'}>
+            <Badge variant={surah.revelationPlace === 'Mecca' ? 'mecca' : 'Madina'}>
               {REVELATION_BN[surah.revelationPlace] || surah.revelationPlace}
             </Badge>
             <span className="text-stone-600 text-xs font-bangla">
