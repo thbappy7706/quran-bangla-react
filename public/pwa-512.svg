@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="#0c0a09"/>
+
+  <!-- Outer ring -->
+  <circle cx="256" cy="256" r="230" fill="none" stroke="#92400e" stroke-width="2" opacity="0.5"/>
+  <circle cx="256" cy="256" r="218" fill="none" stroke="#78350f" stroke-width="1" opacity="0.4"/>
+
+  <!-- Islamic corner ornaments -->
+  <g fill="none" stroke="#92400e" stroke-width="1.5" opacity="0.45">
+    <!-- Top-left -->
+    <path d="M80,80 L80,130 M80,80 L130,80 M80,80 Q110,80 110,110"/>
+    <!-- Top-right -->
+    <path d="M432,80 L432,130 M432,80 L382,80 M432,80 Q402,80 402,110"/>
+    <!-- Bottom-left -->
+    <path d="M80,432 L80,382 M80,432 L130,432 M80,432 Q110,432 110,402"/>
+    <!-- Bottom-right -->
+    <path d="M432,432 L432,382 M432,432 L382,432 M432,432 Q402,432 402,402"/>
+  </g>
+
+  <!-- Radial glow behind letter -->
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#92400e" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#0c0a09" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="256" cy="256" r="180" fill="url(#glow)"/>
+
+  <!-- Arabic letter ق (Qaf) -->
+  <text
+    x="256"
+    y="320"
+    text-anchor="middle"
+    font-family="'Amiri', 'Scheherazade New', 'Noto Naskh Arabic', serif"
+    font-size="240"
+    fill="#f59e0b"
+    opacity="0.95"
+  >ق</text>
+
+  <!-- Small crescent moon top-right -->
+  <g transform="translate(370, 110)" opacity="0.7">
+    <circle cx="12" cy="12" r="12" fill="#f59e0b"/>
+    <circle cx="18" cy="8" r="11" fill="#0c0a09"/>
+  </g>
+
+  <!-- Bottom text -->
+  <text
+    x="256"
+    y="455"
+    text-anchor="middle"
+    font-family="'Cinzel', serif"
+    font-size="22"
+    fill="#92400e"
+    letter-spacing="4"
+    opacity="0.8"
+  >AL-QUR'AN</text>
+</svg>
