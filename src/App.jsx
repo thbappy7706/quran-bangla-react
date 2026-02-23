@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
-import HomePage        from './pages/HomePage'
-import QuranListPage   from './pages/QuranListPage'
+import { Footer } from './components/Footer'
+import HomePage from './pages/HomePage'
+import QuranListPage from './pages/QuranListPage'
 import SurahDetailPage from './pages/SurahDetailPage'
-import BookmarksPage   from './pages/BookmarksPage'
-import SearchPage      from './pages/SearchPage'
+import BookmarksPage from './pages/BookmarksPage'
+import SearchPage from './pages/SearchPage'
 
 export default function App() {
   return (
@@ -22,14 +23,16 @@ export default function App() {
 
       <main className="relative z-10">
         <Routes>
-          <Route path="/"           element={<HomePage />}        />
-          <Route path="/quran"      element={<QuranListPage />}   />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/quran" element={<QuranListPage />} />
           <Route path="/quran/:surahNo" element={<SurahDetailPage />} />
-          <Route path="/bookmarks"  element={<BookmarksPage />}   />
-          <Route path="/search"     element={<SearchPage />}      />
-          <Route path="*"           element={<HomePage />}        />
+          <Route path="/bookmarks" element={<BookmarksPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </main>
+
+      <Footer />
     </div>
   )
 }

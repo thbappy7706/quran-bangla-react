@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://tanvi.github.io/quran-bangla",
+  "homepage": "https://thbappy7706.github.io/quran-bangla-react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
