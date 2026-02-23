@@ -1,4 +1,4 @@
-# কুরআন শরীফ | Al-Quran Bangla App
+#  আল-কুরআন | Al-Quran Bangla App
 
 A beautiful, full-featured Quran reading app in Bengali built with **React 19**, **Vite**, **Tailwind CSS**, and **Framer Motion**. It is also a Progressive Web App (PWA) — installable and offline-capable via a web manifest and service worker.
 

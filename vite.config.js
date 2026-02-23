@@ -12,7 +12,7 @@ export default defineConfig({
 
       // Web App Manifest
       manifest: {
-        name: 'কুরআন শরীফ | Al-Quran Bangla',
+        name: ' আল-কুরআন| Al-Quran Bangla',
         short_name: 'Al-Quran',
         description: 'পবিত্র কুরআন - বাংলা অনুবাদ সহ সম্পূর্ণ কুরআন শরীফ',
         theme_color: '#0c0a09',
