@@ -47,7 +47,7 @@ export function Footer() {
                 {/* Social links */}
                 <div className="flex items-center gap-3">
                     <a
-                        href="https://github.com/thbappy7706"
+                        href="https://thbappy7706.github.io/quran-bangla-react/"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="GitHub"
