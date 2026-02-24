@@ -45,7 +45,7 @@ export default function HomePage() {
             AL-QUR'AN
           </h2>
           <p className="text-stone-400 font-bangla text-lg">
-            বাংলা অনুবাদ সহ পবিত্র কুরআন শরীফ
+            বাংলা অনুবাদ সহ পবিত্র আল-কুরআন
           </p>
         </motion.div>
 

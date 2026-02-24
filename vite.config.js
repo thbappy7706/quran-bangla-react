@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: ' আল-কুরআন| Al-Quran Bangla',
         short_name: 'Al-Quran',
-        description: 'পবিত্র কুরআন - বাংলা অনুবাদ সহ সম্পূর্ণ কুরআন শরীফ',
+        description: 'পবিত্র কুরআন - বাংলা অনুবাদ সহ সম্পূর্ণ আল-কুরআন',
         theme_color: '#0c0a09',
         background_color: '#0c0a09',
         display: 'standalone',
