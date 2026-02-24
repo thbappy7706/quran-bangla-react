@@ -100,14 +100,32 @@
 
   /* Range input */
   input[type='range'] {
-    @apply appearance-none bg-transparent;
+    @apply appearance-none bg-transparent w-full;
   }
+  
+  /* Webkit (Chrome, Safari, Edge) */
   input[type='range']::-webkit-slider-thumb {
-    @apply appearance-none w-3.5 h-3.5 rounded-full bg-amber-500 cursor-pointer;
-    margin-top: -5px;
+    @apply appearance-none w-3.5 h-3.5 rounded-full bg-amber-500 cursor-pointer border-none shadow-md;
+    margin-top: -6px; /* Centering tweak */
   }
   input[type='range']::-webkit-slider-runnable-track {
-    @apply h-1 rounded-full bg-stone-700;
+    @apply h-1 rounded-full bg-stone-600;
+  }
+  input[type='range']:focus {
+    outline: none;
+  }
+
+  /* Mozilla (Firefox) - track */
+  input[type='range']::-moz-range-track {
+    @apply h-1 rounded-full bg-stone-600 border-none;
+  }
+  /* Mozilla (Firefox) - thumb */
+  input[type='range']::-moz-range-thumb {
+    @apply w-3.5 h-3.5 rounded-full bg-amber-500 cursor-pointer border-none shadow-md;
+  }
+  /* Mozilla (Firefox) - progress (bonus visibility) */
+  input[type='range']::-moz-range-progress {
+    @apply h-1 rounded-full bg-amber-600;
   }
 }
 

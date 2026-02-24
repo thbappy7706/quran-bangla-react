@@ -209,6 +209,7 @@ export default function SurahDetailPage() {
       <AnimatePresence>
         {showPlayer && chapterAudioUrl && (
           <motion.div
+            className="fixed bottom-16 md:bottom-0 left-0 right-0 z-50"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
